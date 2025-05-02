@@ -8,7 +8,8 @@ const optionSchema = new mongoose.Schema({
 const pollSchema = new mongoose.Schema({
   title: { type: String, required: true },
   options: [optionSchema],
-  createdAt: { type: Date, default: Date.now }
+  createdAt: { type: Date, default: Date.now },
+  expiresAt: { type: Date }
 })
 
 export default mongoose.model('Poll', pollSchema)

@@ -17,12 +17,13 @@ const startServer = async () => {
   const mongod = await MongoMemoryServer.create()
   const uri = mongod.getUri()
 
-  mongoose.connect(uri)
+  mongoose
+    .connect(uri)
     .then(() => {
       console.log('✅ MongoDB em memória conectado')
       app.listen(port, () => console.log(`🚀 Servidor rodando na porta ${port}`))
     })
-    .catch(err => console.error('Erro ao conectar no MongoDB:', err))
+    .catch((err) => console.error('Erro ao conectar no MongoDB:', err))
 }
 
 startServer()
